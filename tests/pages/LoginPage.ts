@@ -24,9 +24,7 @@ export class LoginPage {
     this.passwordNextButton = this.page.locator('#passwordNext');
 
     // Ideally for another page, but since this is small pack, clubbed into
-    /* this.avatarLink = this.page.getByRole('link', { name: /arvaliduser@gmail\.com/ });
-    this.logout = this.page.locator('a[href*="Logout"]'); */
-    this.errorMessage = this.page.locator('div[jsname="B34EJ"]'); 
+    this.errorMessage = this.page.locator('div[jsname="B34EJ"]'); //I have tried several iterations and have noticed no issues so far, but could fail seeing this could become a dynamic value
     this.avatarLink = this.page.getByRole('button', { name: /@gmail\.com/ });
     this.logout = this.page.locator('a[href*="/Logout"]');
   }
@@ -72,7 +70,7 @@ async verifyInboxLoaded() {
 async verifyErrorMessage(expectedMessage: string) {
     // const errorLocator = this.page.locator('div[jsname="B34EJ"]');
     await expect(this.errorMessage).toBeVisible({ timeout: 5000 });
-    await expect(this.errorMessage).toContainText(expectedMessage); // TODO: expectedMessage to be filled
+    await expect(this.errorMessage).toContainText(expectedMessage);
 } 
 async signOut() {
     // Click profile/avatar button to open account menu

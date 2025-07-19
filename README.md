@@ -5,7 +5,6 @@
 - TypeScript for strong typing
 - Cucumber.js for BDD
 - Page Object Model (POM) for clean, reusable test code
-- GitHub Actions for CI/CD
 
 ## Project Structure:
 ```
