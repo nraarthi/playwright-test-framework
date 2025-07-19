@@ -33,7 +33,4 @@ Then('I should see an error message {string}', async (expectedMessage: string) =
   await loginPage.verifyErrorMessage(expectedMessage);
 });
 
-Then('I sign out from Gmail',{ timeout: 10000 }, async () => {
-  await loginPage.signOut();
-});
 

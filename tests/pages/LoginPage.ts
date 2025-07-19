@@ -10,7 +10,6 @@ export class LoginPage {
   emailNextButton: Locator;
   passwordNextButton: Locator;
   avatarLink: Locator;
-  logout: Locator;
   errorMessage: Locator;
 
   //Constructor: 
@@ -26,7 +25,6 @@ export class LoginPage {
     // Ideally for another page, but since this is small pack, clubbed into
     this.errorMessage = this.page.locator('div[jsname="B34EJ"]'); //I have tried several iterations and have noticed no issues so far, but could fail seeing this could become a dynamic value
     this.avatarLink = this.page.getByRole('button', { name: /@gmail\.com/ });
-    this.logout = this.page.locator('a[href*="/Logout"]');
   }
 
   async navigateToLoginPage() {
@@ -72,17 +70,4 @@ async verifyErrorMessage(expectedMessage: string) {
     await expect(this.errorMessage).toBeVisible({ timeout: 5000 });
     await expect(this.errorMessage).toContainText(expectedMessage);
 } 
-async signOut() {
-    // Click profile/avatar button to open account menu
-    await this.avatarLink.isVisible();
-    await this.avatarLink.click();
-
-    // Wait for Sign out button and click
-    await this.logout.isVisible();
-    await Promise.all([
-        this.logout.click(),
-    ]);
-
-    await this.page.waitForURL('https://accounts.google.com/**', { timeout: 5000 });
-}
 }

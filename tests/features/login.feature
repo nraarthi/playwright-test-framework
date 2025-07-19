@@ -7,7 +7,6 @@ Feature: Gmail Login
     And I enter the password "<password>"
     And I click on Next button after password
     Then I should see the inbox page
-    And I sign out from Gmail
 
   Examples:
     | email             | password      |
