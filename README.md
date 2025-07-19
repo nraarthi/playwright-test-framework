@@ -5,6 +5,7 @@
 - TypeScript for strong typing
 - Cucumber.js for BDD
 - Page Object Model (POM) for clean, reusable test code
+- Inbuilt Playwright report for Test Reporting
 
 ## Project Structure:
 ```
@@ -50,7 +51,7 @@ npm install
 npm run test
 ```
 
-4. Run Playwright tests:
+4. Run Playwright report:
 ```bash
 npm run report
 ```
